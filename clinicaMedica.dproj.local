@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2022/10/14 19:54:55.270,=C:\Users\João Paulo Castro\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/14 19:55:32.774,D:\WORKSPACE\DELPHI\clinica-medica\unitPrincipal.dfm=C:\Users\João Paulo Castro\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/10/14 19:55:32.774,D:\WORKSPACE\DELPHI\clinica-medica\unitPrincipal.pas=C:\Users\João Paulo Castro\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/14 19:55:41.966,D:\WORKSPACE\DELPHI\clinica-medica\clinicaMedica.dproj=C:\Users\João Paulo Castro\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2022/10/14 20:40:52.259,=D:\WORKSPACE\DELPHI\clinica-medica\Unit2.pas</Transaction>
+    <Transaction>2022/10/14 20:41:13.330,D:\WORKSPACE\DELPHI\clinica-medica\unitCadastro.dfm=D:\WORKSPACE\DELPHI\clinica-medica\Unit2.dfm</Transaction>
+    <Transaction>2022/10/14 20:41:13.330,D:\WORKSPACE\DELPHI\clinica-medica\unitCadastro.pas=D:\WORKSPACE\DELPHI\clinica-medica\Unit2.pas</Transaction>
+    <Transaction>2022/10/14 20:41:31.259,D:\WORKSPACE\DELPHI\clinica-medica\unitCadPaciente.dfm=D:\WORKSPACE\DELPHI\clinica-medica\unitCadastro.dfm</Transaction>
+    <Transaction>2022/10/14 20:41:31.259,D:\WORKSPACE\DELPHI\clinica-medica\unitCadPaciente.pas=D:\WORKSPACE\DELPHI\clinica-medica\unitCadastro.pas</Transaction>
+    <Transaction>2022/10/14 20:41:40.414,=D:\WORKSPACE\DELPHI\clinica-medica\Unit3.pas</Transaction>
+    <Transaction>2022/10/14 20:41:50.916,D:\WORKSPACE\DELPHI\clinica-medica\unitCadAgendamento.pas=D:\WORKSPACE\DELPHI\clinica-medica\Unit3.pas</Transaction>
+    <Transaction>2022/10/14 20:41:50.916,D:\WORKSPACE\DELPHI\clinica-medica\unitCadAgendamento.dfm=D:\WORKSPACE\DELPHI\clinica-medica\Unit3.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
