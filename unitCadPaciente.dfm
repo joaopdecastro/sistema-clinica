@@ -19,7 +19,7 @@ object formCadPacientes: TformCadPacientes
   object Label2: TLabel
     Left = 27
     Top = 109
-    Width = 8
+    Width = 11
     Height = 13
     Caption = 'ID'
   end
@@ -33,7 +33,7 @@ object formCadPacientes: TformCadPacientes
   object Label4: TLabel
     Left = 25
     Top = 165
-    Width = 72
+    Width = 75
     Height = 13
     Caption = 'Nome Completo'
   end
@@ -103,7 +103,6 @@ object formCadPacientes: TformCadPacientes
     Height = 21
     DataField = 'cpf'
     DataSource = DM.dsPacientes
-    MaxLength = 14
     TabOrder = 2
   end
   object txtname: TDBEdit
@@ -122,7 +121,6 @@ object formCadPacientes: TformCadPacientes
     Height = 21
     DataField = 'telefone'
     DataSource = DM.dsPacientes
-    MaxLength = 15
     TabOrder = 4
   end
   object txtdata: TDBEdit
@@ -150,8 +148,15 @@ object formCadPacientes: TformCadPacientes
     Columns = <
       item
         Expanded = False
+        FieldName = 'id'
+        Title.Caption = 'ID'
+        Width = 32
+        Visible = True
+      end
+      item
+        Expanded = False
         FieldName = 'nome'
-        Title.Caption = 'Pacientes Cadastrados'
+        Title.Caption = 'Nome Paciente'
         Visible = True
       end>
   end

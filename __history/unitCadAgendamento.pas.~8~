@@ -1,0 +1,42 @@
+unit unitCadAgendamento;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.DBCtrls,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Mask;
+
+type
+  TformCadAgendamentos = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    btnConsultas: TButton;
+    procedure btnConsultasClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  formCadAgendamentos: TformCadAgendamentos;
+
+implementation
+
+{$R *.dfm}
+
+uses unitDM, unitConsultas;
+
+procedure TformCadAgendamentos.btnConsultasClick(Sender: TObject);
+begin
+  Consultas.ShowModal;
+end;
+
+end.

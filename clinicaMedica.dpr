@@ -5,7 +5,9 @@ uses
   unitPrincipal in 'unitPrincipal.pas' {formPrincipal},
   unitCadPaciente in 'unitCadPaciente.pas' {formCadPacientes},
   unitCadAgendamento in 'unitCadAgendamento.pas' {formCadAgendamentos},
-  unitDM in 'unitDM.pas' {DM: TDataModule};
+  unitDM in 'unitDM.pas' {DM: TDataModule},
+  unitConsultas in 'unitConsultas.pas' {Consultas},
+  unitCadastroProfissionais in 'unitCadastroProfissionais.pas' {cadProfissionais};
 
 {$R *.res}
 
@@ -16,5 +18,7 @@ begin
   Application.CreateForm(TformCadPacientes, formCadPacientes);
   Application.CreateForm(TformCadAgendamentos, formCadAgendamentos);
   Application.CreateForm(TDM, DM);
+  Application.CreateForm(TConsultas, Consultas);
+  Application.CreateForm(TcadProfissionais, cadProfissionais);
   Application.Run;
 end.

@@ -11,20 +11,23 @@ type
   TformCadAgendamentos = class(TForm)
     Panel1: TPanel;
     Label1: TLabel;
-    DBNavigator1: TDBNavigator;
     Label2: TLabel;
     Label4: TLabel;
-    txtid: TDBEdit;
-    DBLookupComboBox1: TDBLookupComboBox;
-    DBEdit1: TDBEdit;
     Label3: TLabel;
-    DBEdit2: TDBEdit;
     Label5: TLabel;
     Label6: TLabel;
-    DBComboBox1: TDBComboBox;
-    DBEdit3: TDBEdit;
     Label7: TLabel;
-    DBGrid1: TDBGrid;
+    btnConsultas: TButton;
+    DBGrid2: TDBGrid;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBEdit1: TDBEdit;
+    DBNavigator1: TDBNavigator;
+    txtData: TDBEdit;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBEdit3: TDBEdit;
+    Button1: TButton;
+    procedure btnConsultasClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,6 +41,34 @@ implementation
 
 {$R *.dfm}
 
-uses unitDM;
+uses unitDM, unitConsultas;
+
+procedure TformCadAgendamentos.btnConsultasClick(Sender: TObject);
+begin
+  Consultas.ShowModal;
+end;
+
+procedure TformCadAgendamentos.Button1Click(Sender: TObject);
+begin
+  if (txtData.Text = '') then
+    begin
+       ShowMessage('Insira a data do agendamento')
+    end
+
+  else
+    begin
+        DM.queryAgendamento.Close;
+        DM.queryAgendamento.SQL.Clear;
+        DM.queryAgendamento.SQL.Add('INSERT INTO agendamentos (dataconsulta, idpaciente, idprofissional)');
+        DM.queryAgendamento.SQL.Add('VALUES(:pData, :pIdPaciente, :pIdProfissional;');
+        DM.queryAgendamento.ParamByName('pData').AsString :=  txtData.Text;
+        DM.queryAgendamento.ParamByName('pIdPaciente').AsString :=  DBLookupComboBox1.KeyField;
+        DM.queryAgendamento.ParamByName('pIdProfissional').AsString :=  DBLookupComboBox2.KeyField;
+        //DM.queryAgendamento.ExecSQL;
+        ShowMessage('Agendamento Inserido com Sucesso!');
+      end;
+
+
+end;
 
 end.

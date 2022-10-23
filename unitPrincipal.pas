@@ -16,14 +16,18 @@ type
     Pacientes1: TMenuItem;
     Agendamentos1: TMenuItem;
     Panel1: TPanel;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
+    btnPacientes: TBitBtn;
     Image1: TImage;
+    btnProfissionais: TBitBtn;
+    btnAgendamentos: TBitBtn;
+    Profissionais1: TMenuItem;
     procedure Sair1Click(Sender: TObject);
     procedure Pacientes1Click(Sender: TObject);
     procedure Agendamentos1Click(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
+    procedure btnPacientesClick(Sender: TObject);
+    procedure btnProfissionaisClick(Sender: TObject);
+    procedure btnAgendamentosClick(Sender: TObject);
+    procedure Profissionais1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,21 +41,11 @@ implementation
 
 {$R *.dfm}
 
-uses unitCadPaciente, unitCadAgendamento;
+uses unitCadPaciente, unitCadAgendamento, unitCadastroProfissionais;
 
 procedure TformPrincipal.Agendamentos1Click(Sender: TObject);
 begin
   formCadAgendamentos.ShowModal;
-end;
-
-procedure TformPrincipal.BitBtn1Click(Sender: TObject);
-begin
-  formCadAgendamentos.ShowModal;
-end;
-
-procedure TformPrincipal.BitBtn2Click(Sender: TObject);
-begin
-  formCadPacientes.ShowModal;
 end;
 
 procedure TformPrincipal.Pacientes1Click(Sender: TObject);
@@ -59,9 +53,30 @@ begin
   formCadPacientes.ShowModal;
 end;
 
+procedure TformPrincipal.Profissionais1Click(Sender: TObject);
+begin
+  cadProfissionais.ShowModal;
+end;
+
 procedure TformPrincipal.Sair1Click(Sender: TObject);
 begin
   Application.Terminate;
+end;
+
+
+procedure TformPrincipal.btnProfissionaisClick(Sender: TObject);
+begin
+  cadProfissionais.ShowModal;
+end;
+
+procedure TformPrincipal.btnAgendamentosClick(Sender: TObject);
+begin
+  formCadAgendamentos.ShowModal;
+end;
+
+procedure TformPrincipal.btnPacientesClick(Sender: TObject);
+begin
+  formCadPacientes.ShowModal;
 end;
 
 end.

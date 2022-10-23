@@ -1,0 +1,91 @@
+object formCadAgendamentos: TformCadAgendamentos
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Agendamentos'
+  ClientHeight = 590
+  ClientWidth = 859
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 27
+    Top = 109
+    Width = 11
+    Height = 13
+    Caption = 'ID'
+  end
+  object Label4: TLabel
+    Left = 121
+    Top = 109
+    Width = 41
+    Height = 13
+    Caption = 'Paciente'
+  end
+  object Label3: TLabel
+    Left = 27
+    Top = 165
+    Width = 23
+    Height = 13
+    Caption = 'Data'
+  end
+  object Label5: TLabel
+    Left = 121
+    Top = 165
+    Width = 23
+    Height = 13
+    Caption = 'Hora'
+  end
+  object Label6: TLabel
+    Left = 27
+    Top = 221
+    Width = 64
+    Height = 13
+    Caption = 'Especialidade'
+  end
+  object Label7: TLabel
+    Left = 27
+    Top = 277
+    Width = 33
+    Height = 13
+    Caption = 'M'#233'dico'
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 859
+    Height = 89
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 27
+      Top = 28
+      Width = 156
+      Height = 25
+      Caption = 'Agendamentos'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object btnConsultas: TButton
+    Left = 27
+    Top = 336
+    Width = 352
+    Height = 97
+    Caption = 'Consultar Agendamentos'
+    TabOrder = 1
+    OnClick = btnConsultasClick
+  end
+end

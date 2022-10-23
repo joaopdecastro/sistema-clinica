@@ -115,6 +115,14 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="unitConsultas.pas">
+            <Form>Consultas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unitCadastroProfissionais.pas">
+            <Form>cadProfissionais</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

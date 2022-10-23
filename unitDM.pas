@@ -14,7 +14,6 @@ type
   TDM = class(TDataModule)
     conexao: TFDConnection;
     tbPacientes: TFDTable;
-    tbAgendamentos: TFDTable;
     dsPacientes: TDataSource;
     dsAgendamentos: TDataSource;
     tbPacientesid: TFDAutoIncField;
@@ -22,12 +21,18 @@ type
     tbPacientestelefone: TStringField;
     tbPacientesdata_cadastro: TDateField;
     tbPacientescpf: TStringField;
+    dsProfissionais: TDataSource;
+    tbProfissionais: TFDTable;
+    tbProfissionaisid: TFDAutoIncField;
+    tbProfissionaisnome: TStringField;
+    tbProfissionaisespecialidade: TStringField;
+    tbAgendamentos: TFDTable;
     tbAgendamentosid: TFDAutoIncField;
-    tbAgendamentosid_paciente: TIntegerField;
-    tbAgendamentosdata: TDateField;
-    tbAgendamentoshora: TStringField;
-    tbAgendamentosespecialidade: TStringField;
-    tbAgendamentosmedico: TStringField;
+    tbAgendamentosdataconsulta: TDateField;
+    tbAgendamentosidpaciente: TIntegerField;
+    tbAgendamentosidprofissional: TIntegerField;
+    queryAgendamento: TFDQuery;
+    dsQueryAgendamento: TDataSource;
     procedure tbPacientesAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }

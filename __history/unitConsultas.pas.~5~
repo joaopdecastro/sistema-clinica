@@ -1,0 +1,61 @@
+unit unitConsultas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TConsultas = class(TForm)
+    opcoes: TRadioGroup;
+    txtConsulta: TEdit;
+    lblConsulta: TLabel;
+    btnBusca: TButton;
+    DBGrid1: TDBGrid;
+    procedure opcoesClick(Sender: TObject);
+    procedure btnBuscaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Consultas: TConsultas;
+
+implementation
+
+{$R *.dfm}
+
+uses unitDM;
+
+procedure TConsultas.btnBuscaClick(Sender: TObject);
+begin
+  DM.queryAgendamento.Close;
+  DM.queryAgendamento.SQL.Clear;
+
+  if (opcoes.ItemIndex = 0) then
+    begin
+      DM.queryAgendamento.Add('SELECT p.id, p.nome, a.dataconsulta, f.nome, f.especialidade FROM pacientes p JOIN agendamentos a ON p.id = a.idpaciente JOIN profissionais f ON f.id = a.idprofissional LIKE :pConsulta ORDER BY p.nome;');
+      DM.queryAgendamento.ParamByName('pConsulta').AsString := txtConsulta.Text+'%'
+    end;
+
+end;
+
+procedure TConsultas.opcoesClick(Sender: TObject);
+begin
+  if (opcoes.ItemIndex = 0) then
+    begin
+      lblConsulta.Caption := 'Digite o Nome do Paciente';
+    end
+
+    else
+
+    begin
+      lblConsulta.Caption := 'Digite a Data da Consulta';
+    end;
+end;
+
+end.

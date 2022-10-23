@@ -1,0 +1,120 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 323
+  Width = 611
+  object conexao: TFDConnection
+    Params.Strings = (
+      'Database=clinica'
+      'User_Name=root'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 32
+    Top = 16
+  end
+  object tbPacientes: TFDTable
+    Active = True
+    AfterInsert = tbPacientesAfterInsert
+    IndexFieldNames = 'id'
+    Connection = conexao
+    TableName = 'pacientes'
+    Left = 112
+    Top = 16
+    object tbPacientesid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object tbPacientesnome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Required = True
+      Size = 80
+    end
+    object tbPacientestelefone: TStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Required = True
+      Size = 16
+    end
+    object tbPacientesdata_cadastro: TDateField
+      FieldName = 'data_cadastro'
+      Origin = 'data_cadastro'
+      Required = True
+    end
+    object tbPacientescpf: TStringField
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      Required = True
+      Size = 14
+    end
+  end
+  object tbAgendamentos: TFDTable
+    IndexFieldNames = 'id'
+    Connection = conexao
+    TableName = 'agendamentos'
+    Left = 184
+    Top = 16
+    object tbAgendamentosid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object tbAgendamentosdataconsulta: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dataconsulta'
+      Origin = 'dataconsulta'
+    end
+    object tbAgendamentosidpaciente: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idpaciente'
+      Origin = 'idpaciente'
+    end
+    object tbAgendamentosidprofissional: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idprofissional'
+      Origin = 'idprofissional'
+    end
+  end
+  object dsPacientes: TDataSource
+    DataSet = tbPacientes
+    Left = 112
+    Top = 72
+  end
+  object dsAgendamentos: TDataSource
+    DataSet = tbAgendamentos
+    Left = 184
+    Top = 72
+  end
+  object dsProfissionais: TDataSource
+    DataSet = tbProfissionais
+    Left = 264
+    Top = 72
+  end
+  object tbProfissionais: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = conexao
+    TableName = 'clinica.profissionais'
+    Left = 264
+    Top = 16
+    object tbProfissionaisid: TFDAutoIncField
+      DisplayWidth = 5
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object tbProfissionaisnome: TStringField
+      AutoGenerateValue = arDefault
+      DisplayWidth = 88
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 50
+    end
+    object tbProfissionaisespecialidade: TStringField
+      AutoGenerateValue = arDefault
+      DisplayWidth = 33
+      FieldName = 'especialidade'
+      Origin = 'especialidade'
+      Size = 30
+    end
+  end
+end

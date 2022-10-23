@@ -23,6 +23,7 @@ object DM: TDM
     object tbPacientesid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
+      ReadOnly = True
     end
     object tbPacientesnome: TStringField
       FieldName = 'nome'
@@ -34,7 +35,6 @@ object DM: TDM
       FieldName = 'telefone'
       Origin = 'telefone'
       Required = True
-      EditMask = '(##) #####-####;1;_'
       Size = 16
     end
     object tbPacientesdata_cadastro: TDateField
@@ -46,60 +46,116 @@ object DM: TDM
       FieldName = 'cpf'
       Origin = 'cpf'
       Required = True
-      EditMask = '###.###.###-##;1;_'
       Size = 14
+    end
+  end
+  object dsPacientes: TDataSource
+    DataSet = tbPacientes
+    Left = 112
+    Top = 80
+  end
+  object dsAgendamentos: TDataSource
+    DataSet = tbAgendamentos
+    Left = 216
+    Top = 80
+  end
+  object dsProfissionais: TDataSource
+    DataSet = tbProfissionais
+    Left = 320
+    Top = 80
+  end
+  object tbProfissionais: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = conexao
+    TableName = 'clinica.profissionais'
+    Left = 320
+    Top = 16
+    object tbProfissionaisid: TFDAutoIncField
+      DisplayWidth = 5
+      FieldName = 'id'
+      Origin = 'id'
+      ReadOnly = True
+    end
+    object tbProfissionaisnome: TStringField
+      AutoGenerateValue = arDefault
+      DisplayWidth = 88
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 50
+    end
+    object tbProfissionaisespecialidade: TStringField
+      AutoGenerateValue = arDefault
+      DisplayWidth = 33
+      FieldName = 'especialidade'
+      Origin = 'especialidade'
+      Size = 30
     end
   end
   object tbAgendamentos: TFDTable
     Active = True
     IndexFieldNames = 'id'
     Connection = conexao
-    TableName = 'clinica.agendamentos'
-    Left = 184
-    Top = 16
+    TableName = 'agendamentos'
+    Left = 216
+    Top = 24
     object tbAgendamentosid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
-    object tbAgendamentosid_paciente: TIntegerField
-      FieldName = 'id_paciente'
-      Origin = 'id_paciente'
-      Required = True
+    object tbAgendamentosdataconsulta: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dataconsulta'
+      Origin = 'dataconsulta'
     end
-    object tbAgendamentosdata: TDateField
-      FieldName = 'data'
-      Origin = '`data`'
-      Required = True
-      EditMask = '##/##/####;1;_'
+    object tbAgendamentosidpaciente: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idpaciente'
+      Origin = 'idpaciente'
     end
-    object tbAgendamentoshora: TStringField
-      FieldName = 'hora'
-      Origin = 'hora'
-      Required = True
-      EditMask = '##:##;1;_'
-      Size = 8
-    end
-    object tbAgendamentosespecialidade: TStringField
-      FieldName = 'especialidade'
-      Origin = 'especialidade'
-      Required = True
-      Size = 25
-    end
-    object tbAgendamentosmedico: TStringField
-      FieldName = 'medico'
-      Origin = 'medico'
-      Required = True
-      Size = 30
+    object tbAgendamentosidprofissional: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idprofissional'
+      Origin = 'idprofissional'
     end
   end
-  object dsPacientes: TDataSource
-    DataSet = tbPacientes
-    Left = 112
-    Top = 72
+  object queryAgendamento: TFDQuery
+    Active = True
+    Connection = conexao
+    SQL.Strings = (
+      
+        'select p.id, p.nome, a.dataconsulta, f.nome, f.especialidade fro' +
+        'm pacientes p'
+      '    join agendamentos a'
+      '    on p.id = a.idpaciente'
+      '    join profissionais f'
+      '    on f.id = a.idprofissional'
+      '    order by p.nome;')
+    Left = 216
+    Top = 136
+    ParamData = <
+      item
+        Name = 'pConsulta'
+        ParamType = ptInput
+      end
+      item
+        Name = 'pId'
+      end
+      item
+        Name = 'pData'
+      end
+      item
+        Name = 'pIdPaciente'
+      end
+      item
+        Name = 'pIdProfissional'
+      end>
   end
-  object dsAgendamentos: TDataSource
-    DataSet = tbAgendamentos
-    Left = 184
-    Top = 72
+  object dsQueryAgendamento: TDataSource
+    DataSet = queryAgendamento
+    Left = 216
+    Top = 192
   end
 end

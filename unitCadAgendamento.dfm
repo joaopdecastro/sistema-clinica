@@ -4,7 +4,7 @@ object formCadAgendamentos: TformCadAgendamentos
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Agendamentos'
-  ClientHeight = 449
+  ClientHeight = 400
   ClientWidth = 859
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -32,28 +32,28 @@ object formCadAgendamentos: TformCadAgendamentos
   end
   object Label3: TLabel
     Left = 27
-    Top = 165
+    Top = 155
     Width = 23
     Height = 13
     Caption = 'Data'
   end
   object Label5: TLabel
     Left = 121
-    Top = 165
+    Top = 155
     Width = 23
     Height = 13
     Caption = 'Hora'
   end
   object Label6: TLabel
-    Left = 27
-    Top = 221
+    Left = 345
+    Top = 201
     Width = 64
     Height = 13
     Caption = 'Especialidade'
   end
   object Label7: TLabel
     Left = 27
-    Top = 277
+    Top = 201
     Width = 33
     Height = 13
     Caption = 'M'#233'dico'
@@ -65,7 +65,6 @@ object formCadAgendamentos: TformCadAgendamentos
     Height = 89
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 785
     object Label1: TLabel
       Left = 27
       Top = 28
@@ -80,7 +79,7 @@ object formCadAgendamentos: TformCadAgendamentos
       ParentFont = False
     end
     object DBNavigator1: TDBNavigator
-      Left = 371
+      Left = 445
       Top = 28
       Width = 390
       Height = 33
@@ -88,99 +87,87 @@ object formCadAgendamentos: TformCadAgendamentos
       TabOrder = 0
     end
   end
-  object txtid: TDBEdit
-    Left = 27
-    Top = 128
-    Width = 73
-    Height = 21
-    DataField = 'id'
-    DataSource = DM.dsAgendamentos
+  object btnConsultas: TButton
+    Left = 560
+    Top = 180
+    Width = 275
+    Height = 57
+    Caption = 'Consultar Agendamentos'
     TabOrder = 1
+    OnClick = btnConsultasClick
   end
-  object DBLookupComboBox1: TDBLookupComboBox
-    Left = 121
-    Top = 128
-    Width = 256
-    Height = 21
-    DataField = 'id_paciente'
+  object DBGrid2: TDBGrid
+    Left = 27
+    Top = 262
+    Width = 808
+    Height = 120
     DataSource = DM.dsAgendamentos
-    KeyField = 'id'
-    ListField = 'nome'
-    ListSource = DM.dsPacientes
     TabOrder = 2
-  end
-  object DBEdit1: TDBEdit
-    Left = 27
-    Top = 184
-    Width = 69
-    Height = 21
-    DataField = 'data'
-    DataSource = DM.dsAgendamentos
-    MaxLength = 10
-    TabOrder = 3
-  end
-  object DBEdit2: TDBEdit
-    Left = 121
-    Top = 184
-    Width = 73
-    Height = 21
-    DataField = 'hora'
-    DataSource = DM.dsAgendamentos
-    MaxLength = 5
-    TabOrder = 4
-  end
-  object DBComboBox1: TDBComboBox
-    Left = 27
-    Top = 240
-    Width = 167
-    Height = 21
-    DataField = 'especialidade'
-    DataSource = DM.dsAgendamentos
-    Items.Strings = (
-      'Cardiologista'
-      'Nutricionista'
-      'Ortopedista')
-    TabOrder = 5
-  end
-  object DBEdit3: TDBEdit
-    Left = 27
-    Top = 296
-    Width = 350
-    Height = 21
-    DataField = 'medico'
-    DataSource = DM.dsAgendamentos
-    TabOrder = 6
-  end
-  object DBGrid1: TDBGrid
-    Left = 408
-    Top = 109
-    Width = 433
-    Height = 324
-    DataSource = DM.dsAgendamentos
-    TabOrder = 7
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'data'
-        Title.Caption = 'Data'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'hora'
-        Title.Caption = 'Hora'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'especialidade'
-        Title.Caption = 'Especialidade'
-        Visible = True
-      end>
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 121
+    Top = 128
+    Width = 376
+    Height = 21
+    DataField = 'idpaciente'
+    DataSource = DM.dsAgendamentos
+    KeyField = 'id'
+    ListField = 'nome'
+    ListSource = DM.dsPacientes
+    TabOrder = 3
+  end
+  object DBEdit1: TDBEdit
+    Left = 27
+    Top = 128
+    Width = 78
+    Height = 21
+    DataField = 'idpaciente'
+    DataSource = DM.dsAgendamentos
+    TabOrder = 4
+  end
+  object txtData: TDBEdit
+    Left = 27
+    Top = 174
+    Width = 78
+    Height = 21
+    DataField = 'dataconsulta'
+    DataSource = DM.dsAgendamentos
+    TabOrder = 5
+  end
+  object DBLookupComboBox2: TDBLookupComboBox
+    Left = 27
+    Top = 220
+    Width = 312
+    Height = 21
+    DataField = 'idprofissional'
+    DataSource = DM.dsAgendamentos
+    KeyField = 'id'
+    ListField = 'nome'
+    ListSource = DM.dsProfissionais
+    TabOrder = 6
+  end
+  object DBEdit3: TDBEdit
+    Left = 345
+    Top = 220
+    Width = 152
+    Height = 21
+    DataField = 'especialidade'
+    DataSource = DM.dsProfissionais
+    ReadOnly = True
+    TabOrder = 7
+  end
+  object Button1: TButton
+    Left = 560
+    Top = 117
+    Width = 275
+    Height = 57
+    Caption = 'Inserir Agendamento'
+    TabOrder = 8
+    OnClick = Button1Click
   end
 end
